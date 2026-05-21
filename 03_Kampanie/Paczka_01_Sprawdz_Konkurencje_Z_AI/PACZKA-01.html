@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paczka #01: Sprawdz Konkurencje Z AI | Media Matrix</title>
+  <link rel="stylesheet" href="../../matrix-campaign.css">
+  <style>
+    body {
+      background:
+        radial-gradient(circle at 18% 10%, rgba(57, 255, 20, 0.12), transparent 35rem),
+        radial-gradient(circle at 88% 20%, rgba(55, 37, 80, 0.16), transparent 40rem),
+        #0a0a0c !important;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 12px;
+      background:
+        linear-gradient(116deg, rgba(255, 255, 255, 0.06), transparent 28%, rgba(57, 255, 20, 0.045)),
+        rgba(12, 12, 12, 0.92);
+      border: 1px solid rgba(57, 255, 20, 0.18) !important;
+    }
+
+    .pack-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.48fr);
+      gap: 24px;
+      padding: 46px 0 28px;
+      align-items: stretch;
+    }
+
+    .pack-intro,
+    .pack-aside,
+    .pack-section {
+      padding: 28px;
+    }
+
+    .pack-intro {
+      min-height: 470px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(116deg, rgba(255, 255, 255, 0.09) 0%, transparent 18%, transparent 58%, rgba(255, 255, 255, 0.045) 70%, transparent 82%),
+        rgba(16, 16, 16, 0.88);
+      border-color: rgba(57, 255, 20, 0.16) !important;
+      container-type: inline-size;
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      font-size: clamp(38px, 6.6cqw, 70px);
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0;
+      color: #ededed;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
+    .pack-meta {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pack-meta li {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--mm-muted);
+      font-family: var(--mm-font-ui);
+      font-size: 13px;
+    }
+
+    .pack-meta strong {
+      color: var(--mm-green-bright);
+      text-align: right;
+    }
+
+    .pack-body {
+      display: grid;
+      gap: 24px;
+      padding-bottom: 54px;
+    }
+
+    .pack-section h2,
+    .pack-aside h2 {
+      margin: 0 0 14px;
+      color: var(--mm-text);
+      font-family: var(--mm-font-display);
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.04;
+      text-transform: uppercase;
+    }
+
+    .pack-section p,
+    .pack-section li,
+    .pack-aside p {
+      color: var(--mm-muted);
+      line-height: 1.65;
+    }
+
+    .pack-section ol,
+    .pack-section ul {
+      margin: 14px 0 0;
+      padding-left: 22px;
+    }
+
+    .prompt-block {
+      margin-top: 18px;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .check-card {
+      padding: 16px;
+    }
+
+    .check-card h3 {
+      margin: 0 0 10px;
+      font-family: var(--mm-font-ui);
+      font-size: 17px;
+    }
+
+    .download-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .footer {
+      padding: 22px 0 10px;
+      color: rgba(248, 250, 252, 0.48);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .mm-page {
+        padding: 0;
+      }
+
+      .topbar,
+      .download-row,
+      .footer {
+        display: none !important;
+      }
+
+      .mm-panel,
+      .mm-panel--heavy,
+      .mm-panel--compact,
+      .mm-terminal {
+        box-shadow: none !important;
+        border-color: #ddd !important;
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .pack-hero,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pack-section,
+      .pack-intro,
+      .pack-aside {
+        break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .pack-hero,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pack-intro {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .pack-intro,
+      .pack-aside,
+      .pack-section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: clamp(26px, 7.2vw, 34px);
+        line-height: 1.02;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="mm-page">
+    <div class="mm-shell">
+      <header class="topbar mm-panel">
+        <div class="mm-brand">
+          <div class="mm-mark">M</div>
+          <span>Media Matrix</span>
+        </div>
+        <nav class="mm-nav" aria-label="Nawigacja paczki">
+          <a class="active" href="landing.html">Paczka #01</a>
+          <a href="#prompt">Polecenie</a>
+          <a href="#checklista">Kroki</a>
+          <a href="thank-you.html">Odbior</a>
+        </nav>
+      </header>
+
+      <section class="pack-hero">
+        <article class="pack-intro mm-panel mm-panel--heavy">
+          <div class="mm-badge">Paczka #01 / dla poczatkujacych</div>
+          <h1 class="mm-display"><span>Sprawdz</span><span>konkurencje</span><span>z AI</span></h1>
+          <p class="lead">Wybierz 3 podobne firmy, wklej gotowe polecenie do AI i zobacz, jak prosciej opisac swoja oferte.</p>
+          <div class="download-row">
+            <a class="mm-btn mm-btn--primary" href="#prompt">Przejdz do polecenia</a>
+            <a class="mm-btn mm-btn--secondary" href="PACZKA-01.md">Wersja tekstowa</a>
+          </div>
+        </article>
+
+        <aside class="pack-aside mm-panel mm-panel--heavy">
+          <div class="mm-badge mm-badge--small">Co zrobisz</div>
+          <h2>Jeden prosty wynik</h2>
+          <ul class="pack-meta">
+            <li><span>Czas wykonania</span><strong>20 minut</strong></li>
+            <li><span>Przygotujesz</span><strong>3 linki</strong></li>
+            <li><span>Dostaniesz</span><strong>pomysly</strong></li>
+            <li><span>Na koncu</span><strong>prosty tekst</strong></li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="pack-body">
+        <section class="pack-section mm-panel">
+          <h2>Dla kogo</h2>
+          <p>Dla osoby, ktora dopiero uczy sie AI i chce zrobic pierwszy praktyczny krok. Nie musisz znac marketingu. Masz tylko sprawdzic 3 podobne firmy i napisac prostszy tekst o swojej ofercie.</p>
+        </section>
+
+        <section class="pack-section mm-panel">
+          <h2>Co przygotowac</h2>
+          <ol>
+            <li>Link do swojej strony, profilu albo opisu oferty.</li>
+            <li>Linki do 3 firm, ktore robia cos podobnego do Ciebie.</li>
+            <li>Jedno zdanie o tym, komu pomagasz.</li>
+          </ol>
+        </section>
+
+        <section class="pack-section mm-panel" id="prompt">
+          <h2>Krok 1: polecenie do AI</h2>
+          <p>Polecenie do AI czesto nazywa sie "prompt". To po prostu tekst, ktory wklejasz do ChatGPT, Claude albo Gemini. Skopiuj calosc.</p>
+          <div class="mm-terminal prompt-block">
+            <div class="mm-terminal__bar"><span class="mm-terminal__dot"></span> polecenie-glowne.txt</div>
+            <pre>Pomoz mi sprawdzic konkurencje mojej firmy prostym jezykiem.
+
+Moja firma:
+[wklej krotki opis swojej firmy]
+
+Moja strona albo profil:
+[wklej link]
+
+Firmy podobne do mojej:
+1. [link do firmy 1]
+2. [link do firmy 2]
+3. [link do firmy 3]
+
+Sprawdz kazda z tych firm i napisz:
+1. Co obiecuja klientowi?
+2. Co tlumacza dobrze?
+3. Co brzmi nudno, trudno albo niejasno?
+4. Dla kogo jest ich oferta?
+5. Czego nie mowia, a klient moglby chciec wiedziec?
+
+Potem porownaj je z moja firma i napisz:
+1. Co moge powiedziec prosciej niz oni?
+2. Co moge pokazac wyrazniej?
+3. Jakie 5 tekstow moge przetestowac na stronie albo w poscie?
+4. Jedno zdanie, ktore najlepiej opisuje, czym moja firma moze sie wyroznic.
+
+Pisz prosto. Nie uzywaj trudnych slow. Jesli piszesz "lepsza jakosc" albo "profesjonalizm", wyjasnij, co to konkretnie znaczy dla klienta.</pre>
+          </div>
+        </section>
+
+        <section class="pack-section mm-panel">
+          <h2>Krok 2: wybierz jeden pomysl</h2>
+          <p>AI moze dac duzo odpowiedzi. Nie wybieraj wszystkiego. Wybierz tylko jeden pomysl, ktory jest prosty, prawdziwy, inny niz u podobnych firm i latwy do pokazania klientowi.</p>
+          <div class="mm-terminal prompt-block">
+            <div class="mm-terminal__bar"><span class="mm-terminal__dot"></span> dobry-pomysl.txt</div>
+            <pre>Zamiast obiecywac "profesjonalne reklamy", moge pokazac klientowi prosty plan: co robimy w pierwszych 7 dniach, ile to zajmie i co klient dostanie na koncu.</pre>
+          </div>
+        </section>
+
+        <section class="pack-section mm-panel">
+          <h2>Krok 3: zamien pomysl w tekst</h2>
+          <p>Skopiuj drugie polecenie do AI, kiedy wybierzesz jeden pomysl z pierwszej odpowiedzi.</p>
+          <div class="mm-terminal prompt-block">
+            <div class="mm-terminal__bar"><span class="mm-terminal__dot"></span> polecenie-tekst.txt</div>
+            <pre>Na podstawie tej analizy pomoz mi napisac prosty tekst dla klienta.
+
+Wybrany pomysl:
+[wklej jeden pomysl z poprzedniego wyniku]
+
+Napisz:
+1. Jeden naglowek, czyli pierwsze mocne zdanie na stronie albo w poscie.
+2. Dwa proste zdania wyjasnienia.
+3. Trzy punkty, ktore pokazuja, dlaczego klient moze mi zaufac.
+4. Jedna zachete do kontaktu, czyli tekst na przycisku albo koniec posta.
+
+Pisz tak, zeby zrozumiala to osoba, ktora pierwszy raz widzi moja firme.</pre>
+          </div>
+        </section>
+
+        <section class="pack-section mm-panel" id="checklista">
+          <h2>Jak poznac, ze wynik jest dobry</h2>
+          <div class="check-grid">
+            <article class="check-card mm-panel mm-panel--compact">
+              <h3>Dobry wynik</h3>
+              <ul>
+                <li>brzmi normalnie, jak czlowiek do czlowieka,</li>
+                <li>mowi jasno, komu pomagasz,</li>
+                <li>pokazuje konkret, a nie puste haslo,</li>
+                <li>da sie wkleic na strone, do posta albo do oferty,</li>
+                <li>jest inny niz teksty podobnych firm.</li>
+              </ul>
+            </article>
+            <article class="check-card mm-panel mm-panel--compact">
+              <h3>Slaby wynik</h3>
+              <ul>
+                <li>brzmi jak reklama bez znaczenia,</li>
+                <li>ma slowa typu "najwyzsza jakosc", ale nie tlumaczy co to znaczy,</li>
+                <li>jest za dlugi,</li>
+                <li>jest za trudny,</li>
+                <li>nie wiadomo, co klient ma zrobic dalej.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="pack-section mm-panel">
+          <h2>Checklista</h2>
+          <ul>
+            <li>Mam opis swojej firmy.</li>
+            <li>Mam 3 linki do podobnych firm.</li>
+            <li>Wkleilem pierwsze polecenie do AI.</li>
+            <li>Przeczytalem wynik.</li>
+            <li>Wybralem jeden prosty pomysl.</li>
+            <li>Wkleilem drugie polecenie do AI.</li>
+            <li>Mam naglowek, opis i zachete do kontaktu.</li>
+            <li>Wiem, gdzie to sprawdze: strona, post, wiadomosc albo rozmowa z klientem.</li>
+          </ul>
+        </section>
+
+        <section class="pack-section mm-panel">
+          <h2>Opcjonalnie: wyslij komus do sprawdzenia</h2>
+          <p>To nie jest obowiazkowe. Jesli nie masz pewnosci, wyslij wynik jednej osobie i zapytaj, czy tekst jest jasny.</p>
+          <div class="mm-terminal prompt-block">
+            <div class="mm-terminal__bar"><span class="mm-terminal__dot"></span> sprawdzenie.txt</div>
+            <pre>Czesc, testuje nowy opis mojej oferty.
+
+Moja firma pomaga:
+[wklej jedno zdanie]
+
+Nowy naglowek:
+[wklej naglowek]
+
+Krotki opis:
+[wklej opis]
+
+Zacheta do kontaktu:
+[wklej tekst na przycisk albo koniec posta]
+
+Czy to jest jasne?
+Czy od razu wiadomo, komu pomagam?
+Czy brzmi to prosciej niz typowe teksty konkurencji?</pre>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer">
+        Media Matrix / Paczka #01 - Sprawdz Konkurencje Z AI.
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

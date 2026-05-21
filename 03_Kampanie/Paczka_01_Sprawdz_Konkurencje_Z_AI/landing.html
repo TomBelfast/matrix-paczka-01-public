@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paczka #01: Sprawdz Konkurencje Z AI | Media Matrix</title>
+  <link rel="stylesheet" href="../../matrix-campaign.css">
+  <style>
+    body {
+      background:
+        radial-gradient(circle at 18% 10%, rgba(57, 255, 20, 0.12), transparent 35rem),
+        radial-gradient(circle at 88% 20%, rgba(55, 37, 80, 0.16), transparent 40rem),
+        radial-gradient(circle at 50% 60%, rgba(6, 182, 212, 0.08), transparent 30rem),
+        #0a0a0c !important;
+    }
+
+    .mm-page::before {
+      background-image: radial-gradient(rgba(57, 255, 20, 0.12) 1px, transparent 1px) !important;
+      background-size: 28px 28px !important;
+      mask-image: radial-gradient(circle at 50% 50%, black 70%, transparent 100%) !important;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 12px;
+      background:
+        linear-gradient(116deg, rgba(255, 255, 255, 0.06), transparent 28%, rgba(57, 255, 20, 0.045)),
+        rgba(12, 12, 12, 0.92);
+      backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(57, 255, 20, 0.18) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.7),
+        0 14px 34px rgba(0, 0, 0, 0.42),
+        0 0 32px rgba(57, 255, 20, 0.12) !important;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      gap: 24px;
+      padding: 46px 0 32px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      min-height: 590px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 36px;
+      background:
+        linear-gradient(116deg, rgba(255, 255, 255, 0.09) 0%, transparent 18%, transparent 58%, rgba(255, 255, 255, 0.045) 70%, transparent 82%),
+        linear-gradient(180deg, rgba(31, 31, 31, 0.82), rgba(12, 12, 12, 0.9)),
+        radial-gradient(circle at 12% 14%, rgba(57, 255, 20, 0.12), transparent 22rem);
+      container-type: inline-size;
+      border: 1px solid rgba(57, 255, 20, 0.16) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1px rgba(57, 255, 20, 0.08),
+        inset 0 -7px 14px rgba(0, 0, 0, 0.72),
+        0 34px 0 rgba(0, 0, 0, 0.18),
+        0 68px 112px rgba(0, 0, 0, 0.7),
+        0 0 56px rgba(57, 255, 20, 0.12) !important;
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-size: clamp(38px, 6.8cqw, 62px);
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 0;
+      color: #ededed;
+      font-size: clamp(18px, 2.1vw, 23px);
+      line-height: 1.46;
+      font-weight: 650;
+    }
+
+    .sublead {
+      max-width: 640px;
+      margin: 22px 0 0;
+      color: var(--mm-muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .metrics,
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metrics {
+      margin-top: 42px;
+      max-width: 650px;
+      gap: 10px;
+    }
+
+    .metric,
+    .feature,
+    .step,
+    .report-card {
+      padding: 18px;
+    }
+
+    .metric {
+      padding: 14px;
+      background: rgba(25, 25, 25, 0.75);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--mm-green-bright);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 7px;
+      color: var(--mm-muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .module-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--mm-line);
+      background: rgba(24, 24, 24, 0.72);
+    }
+
+    .module-title {
+      color: var(--mm-green-bright);
+      font-size: 13px;
+      font-weight: 850;
+      font-family: var(--mm-font-ui);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .preview-body {
+      padding: 18px;
+    }
+
+    .report-card h2,
+    .band h2 {
+      margin: 0;
+      color: var(--mm-text);
+      font-family: var(--mm-font-display);
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .report-card h2 {
+      margin: 8px 0;
+      font-size: clamp(24px, 3vw, 32px);
+    }
+
+    .report-card p,
+    .band p,
+    .feature p,
+    .step p {
+      color: var(--mm-muted);
+      line-height: 1.62;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 22px 0;
+    }
+
+    .sections {
+      display: grid;
+      gap: 28px;
+      padding-bottom: 54px;
+    }
+
+    .band {
+      padding: 26px;
+    }
+
+    .band-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .band h2 {
+      font-size: clamp(26px, 4vw, 42px);
+    }
+
+    .feature h3,
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-family: var(--mm-font-ui);
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: #06130a;
+      background: var(--mm-green);
+      border-radius: 6px;
+      font-weight: 900;
+      font-family: var(--mm-font-ui);
+      margin-bottom: 13px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.36),
+        0 6px 0 rgba(16, 115, 38, 0.78),
+        0 14px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .step-num {
+      color: var(--mm-green-bright);
+      font-size: 12px;
+      font-weight: 900;
+      font-family: var(--mm-font-ui);
+      letter-spacing: 0.08em;
+    }
+
+    .step h3 {
+      margin-top: 10px;
+    }
+
+    .signup {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .form {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      background:
+        linear-gradient(116deg, rgba(255, 255, 255, 0.075), transparent 30%, rgba(255, 255, 255, 0.032) 74%, transparent),
+        rgba(10, 10, 10, 0.78);
+    }
+
+    .input {
+      min-height: 50px;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 0 14px;
+      color: rgba(248, 250, 252, 0.72);
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+    }
+
+    .input::placeholder {
+      color: rgba(248, 250, 252, 0.46);
+    }
+
+    .microcopy {
+      margin: 4px 0 0;
+      color: var(--mm-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .delivery-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .delivery-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--mm-muted);
+      line-height: 1.55;
+    }
+
+    .delivery-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 8px;
+      border-radius: 2px;
+      background: var(--mm-green);
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.18);
+      flex: 0 0 auto;
+    }
+
+    .footer {
+      padding: 22px 0 10px;
+      color: rgba(248, 250, 252, 0.48);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 940px) {
+      .hero,
+      .signup,
+      .grid-3,
+      .flow,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: auto;
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        padding-top: 16px;
+      }
+
+      .band-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-copy,
+      .band {
+        padding: 20px;
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: clamp(28px, 8.1vw, 38px);
+        text-wrap: balance;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="mm-page">
+    <div class="mm-shell">
+      <header class="topbar mm-panel">
+        <div class="mm-brand">
+          <div class="mm-mark">M</div>
+          <span>Media Matrix</span>
+        </div>
+        <nav class="mm-nav" aria-label="Podglad nawigacji">
+          <span class="active">Paczka #01</span>
+          <span>Polecenie</span>
+          <span>Kroki</span>
+          <span>Sprawdzenie</span>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy mm-panel mm-panel--heavy">
+          <div class="mm-badge">Paczka #01 / dla poczatkujacych</div>
+          <h1 class="mm-display"><span>Sprawdz</span><span>konkurencje</span><span>z AI</span></h1>
+          <p class="lead">Wybierz 3 podobne firmy. Wklej gotowe polecenie do AI. Dostaniesz pomysl, jak prosciej opisac swoja oferte.</p>
+          <p class="sublead">To jest material dla osob, ktore dopiero ucza sie AI. Bez trudnych slow. Krok po kroku: co przygotowac, co wkleic i co zrobic z odpowiedzia.</p>
+          <div class="actions">
+            <a class="mm-btn mm-btn--primary" href="#formularz">Odbierz paczke</a>
+            <a class="mm-btn mm-btn--secondary" href="#prompt">Zobacz polecenie</a>
+          </div>
+          <div class="metrics" aria-label="Najwazniejsze korzysci">
+            <div class="metric mm-panel mm-panel--compact">
+              <strong>20 min</strong>
+              <span>od startu do pierwszego pomyslu</span>
+            </div>
+            <div class="metric mm-panel mm-panel--compact">
+              <strong>3</strong>
+              <span>firmy do sprawdzenia</span>
+            </div>
+            <div class="metric mm-panel mm-panel--compact">
+              <strong>5</strong>
+              <span>prostych tekstow do testu</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="mm-panel mm-panel--heavy" aria-label="Podglad wyniku paczki">
+          <div class="module-head">
+            <div class="module-title">Co dostaniesz</div>
+            <div class="mm-badge mm-badge--small">Gotowe do skopiowania</div>
+          </div>
+          <div class="preview-body">
+            <div class="report-card mm-panel mm-panel--heavy">
+              <div class="mm-badge">Prosty wynik</div>
+              <h2>Pomysl na lepszy opis oferty</h2>
+              <p>Po wykonaniu paczki wiesz, co podobne firmy mowia dobrze, co brzmi u nich slabo i jak napisac swoj tekst prosciej.</p>
+              <div class="tag-row">
+                <span class="mm-tag">Konkurencja</span>
+                <span class="mm-tag mm-tag--amber">Oferta</span>
+                <span class="mm-tag mm-tag--cyan">Prosty tekst</span>
+              </div>
+              <div class="mm-terminal" id="prompt">
+                <div class="mm-terminal__bar"><span class="mm-terminal__dot"></span> polecenie-do-ai.txt</div>
+                <pre>Pomoz mi sprawdzic konkurencje mojej firmy prostym jezykiem.
+
+Moja firma:
+[opis]
+
+Firmy podobne do mojej:
+1. [link]
+2. [link]
+3. [link]
+
+Wypisz:
+- co obiecuja klientowi
+- co tlumacza dobrze
+- co brzmi trudno albo nudno
+- co moja firma moze powiedziec prosciej
+- 5 tekstow do sprawdzenia</pre>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="sections">
+        <section class="band mm-panel">
+          <div class="band-title">
+            <h2>Co dostajesz</h2>
+            <span class="mm-badge mm-badge--small">Jedna paczka, jeden wynik</span>
+          </div>
+          <div class="grid-3">
+            <article class="feature mm-panel mm-panel--compact">
+              <div class="feature-icon">1</div>
+              <h3>Gotowe polecenie do AI</h3>
+              <p>Kopiujesz tekst, podmieniasz dane swojej firmy i wklejasz do ChatGPT, Claude albo Gemini.</p>
+            </article>
+            <article class="feature mm-panel mm-panel--compact">
+              <div class="feature-icon">2</div>
+              <h3>Drugi prosty krok</h3>
+              <p>AI pomaga zamienic wynik w naglowek, krotki opis i tekst na przycisku.</p>
+            </article>
+            <article class="feature mm-panel mm-panel--compact">
+              <div class="feature-icon">3</div>
+              <h3>Lista do odhaczenia</h3>
+              <p>Widzisz, co zrobic po kolei i kiedy wynik jest wystarczajaco dobry.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="band mm-panel">
+          <div class="band-title">
+            <h2>Jak to dziala</h2>
+          </div>
+          <div class="flow">
+            <article class="step mm-panel mm-panel--compact">
+              <div class="step-num">KROK 01</div>
+              <h3>Zbierz linki</h3>
+              <p>Wez opis swojej firmy i 3 linki do firm, ktore robia cos podobnego.</p>
+            </article>
+            <article class="step mm-panel mm-panel--compact">
+              <div class="step-num">KROK 02</div>
+              <h3>Wklej polecenie</h3>
+              <p>Uzyj gotowego tekstu z paczki. Nie musisz wymyslac pytania od zera.</p>
+            </article>
+            <article class="step mm-panel mm-panel--compact">
+              <div class="step-num">KROK 03</div>
+              <h3>Wybierz jeden pomysl</h3>
+              <p>Nie bierz wszystkiego. Wybierz jedna rzecz, ktora mozesz powiedziec prosciej.</p>
+            </article>
+            <article class="step mm-panel mm-panel--compact">
+              <div class="step-num">KROK 04</div>
+              <h3>Wybierz test</h3>
+              <p>Zmien pomysl w naglowek, krotki opis i zachete do kontaktu.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="band signup mm-panel" id="formularz">
+          <div>
+            <div class="mm-badge">Start wykonania</div>
+            <h2>Odbierz Paczke #01</h2>
+            <p>Zostaw email i przejdz do strony odbioru. Dostaniesz gotowe polecenia do AI i prosta instrukcje krok po kroku.</p>
+            <ul class="delivery-list">
+              <li>Otwierasz paczke od razu po zapisie.</li>
+              <li>W mailu dostajesz drugi link do paczki.</li>
+              <li>Po wykonaniu masz gotowy naglowek, opis i zachete do kontaktu.</li>
+            </ul>
+          </div>
+          <form class="form mm-panel" onsubmit="event.preventDefault(); window.location.href = 'thank-you.html' + window.location.search;">
+            <input class="input" type="email" name="email" placeholder="twoj@email.pl" required>
+            <button class="mm-btn mm-btn--primary" type="submit" style="border: 0; font-family: var(--mm-font-ui); font-size: 15px;">Odbierz paczke</button>
+            <p class="microcopy">Zero teorii. Otwierasz paczke i robisz pierwszy prosty wynik z AI.</p>
+          </form>
+        </section>
+      </section>
+
+      <footer class="footer">
+        Media Matrix / Paczka #01 - Sprawdz Konkurencje Z AI.
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
